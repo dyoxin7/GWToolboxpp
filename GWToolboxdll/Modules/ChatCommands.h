@@ -136,10 +136,11 @@ private:
     } npc_to_find;
 
     struct SkillToUse {
-        uint32_t slot = 0; // 1-8 range
+        std::list<uint32_t> slots = {}; // 1-8 range
         float skill_usage_delay = 0.f;
         clock_t skill_timer = clock();
         void Update();
+        void AddSkillToUse(uint32_t skill);
     } skill_to_use;
 
     struct QuestPing {
